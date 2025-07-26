@@ -1,12 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Inicio from "./pages/Inicio";
 import Sobre from "./pages/Sobre";
-
-console.log(window.location);
-
-const pagina = window.location.pathname === "/" ? <Inicio /> : <Sobre />;
+import Rotas from "./routes";
 
 function App() {
-  return pagina;
+  return (
+    <BrowserRouter>
+      <Rotas />
+    </BrowserRouter>
+  );
 }
 
 export default App;
