@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import Inicio from "../pages/Inicio";
-import Sobre from "../pages/Sobre";
+import Home from "../pages/Home";
+import About from "../pages/About";
 
-export default function Rotas() {
+export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Inicio />} />
-      <Route path="/about" element={<Sobre />} />
-      <Route path="*" element={<div>Página não encontrada</div>} />
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="*" element={<div>Page not found</div>} />
     </Routes>
   );
 }

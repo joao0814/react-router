@@ -1,13 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 
-import Rotas from "./routes";
 import Menu from "./components/Menu";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <BrowserRouter>
       <Menu />
-      <Rotas />
+      <AppRoutes />
     </BrowserRouter>
   );
 }
