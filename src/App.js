@@ -1,11 +1,12 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Inicio from "./pages/Inicio";
-import Sobre from "./pages/Sobre";
+import { BrowserRouter } from "react-router-dom";
+
 import Rotas from "./routes";
+import Menu from "./components/Menu";
 
 function App() {
   return (
     <BrowserRouter>
+      <Menu />
       <Rotas />
     </BrowserRouter>
   );
