@@ -1,7 +1,9 @@
+import Banner from "components/Banner";
+
 export default function About() {
   return (
-    <div>
+    <main>
       <p>About</p>
-    </div>
+    </main>
   );
 }
