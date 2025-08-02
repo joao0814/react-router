@@ -1,13 +1,20 @@
 import { useParams } from "react-router-dom";
+import posts from "../../json/posts.json";
+import PostModel from "components/PostModel";
 
-export default function Post({ post }) {
+export default function Post({}) {
   const parametros = useParams();
-  console.log("opa:", parametros);
+
+  const post = posts.find((post) => {
+    return post.id === Number(parametros.id);
+  });
 
   return (
-    <div>
-      <h2>Post {parametros.id}</h2>
-      <button>Post {parametros.id}</button>
-    </div>
+    <PostModel
+      fotoCapa={require(`assets/posts/${post.id}/capa.png`)}
+      titulo={post.titulo}
+    >
+      {post.texto}
+    </PostModel>
   );
 }

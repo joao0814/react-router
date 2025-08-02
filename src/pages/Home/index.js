@@ -1,4 +1,3 @@
-import Banner from "components/Banner";
 import styles from "./Home.module.css";
 
 import posts from "json/posts.json";
