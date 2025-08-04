@@ -9,6 +9,10 @@ export default function Post() {
 
   const post = posts.find((post) => post.id === Number(parametros.id));
 
+  if (!post) {
+    return <div className="post-not-found">Post não encontrado</div>;
+  }
+
   const componentesMarkdown = {
     img: ({ src = "", alt = "" }) => {
       try {
