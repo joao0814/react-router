@@ -5,11 +5,14 @@ import ReactMarkdown from "react-markdown";
 import "./Post.css";
 import Undefined from "pages/Undefined";
 import DefaultPage from "components/DefaultPage";
+import PostCard from "components/PostCard";
 
 export default function Post() {
   const parametros = useParams();
 
   const post = posts.find((post) => post.id === Number(parametros.id));
+
+  const recomendacoes = posts.filter((p) => p.id !== post.id).slice(0, 4);
 
   if (!post) {
     return (
@@ -47,6 +50,14 @@ export default function Post() {
                 <ReactMarkdown components={componentesMarkdown}>
                   {post.texto}
                 </ReactMarkdown>
+              </div>
+              <div className="recomendacoes">
+                <h2>Recomendations</h2>
+                <div className="recomendacoes__container">
+                  {recomendacoes.map((postRecomendado) => (
+                    <PostCard key={postRecomendado.id} post={postRecomendado} />
+                  ))}
+                </div>
               </div>
             </PostModel>
           }
