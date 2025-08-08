@@ -1,53 +1,75 @@
 .postModeloContainer {
-  color: var(--cor-fonte-post);
+  color: var(--primary-700);
   position: relative;
+  background: var(--white);
+  min-height: 100vh;
 }
 
 .fotoCapa,
 .titulo {
-  height: 204px;
+  height: 300px;
 }
 
 .fotoCapa {
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  background-position: center;
+  opacity: 0.4;
   position: absolute;
   top: 0;
   z-index: -1;
+  filter: blur(1px);
 }
 
 .titulo {
-  font-family: var(--fonte-secundaria);
-  padding: 0 7.5rem;
-  font-size: 4rem;
+  font-family: var(--font-secondary);
+  padding: 0 var(--space-2xl);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
   display: flex;
   align-items: center;
+  color: var(--primary-900);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .postConteudoContainer {
-  padding: 2.5rem 7.5rem 4.5rem;
+  padding: var(--space-3xl) var(--space-2xl) var(--space-3xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-lg);
 }
 
-@media (max-width: 744px) {
+@media (max-width: 1100px) {
   .postConteudoContainer {
-    padding: 2rem 1.5rem 1.5rem;
+    padding: var(--space-2xl) var(--space-lg) var(--space-2xl);
+    margin: 0 var(--space-md);
+    margin-top: -30px;
   }
 }
 
 @media (max-width: 744px) {
   .fotoCapa,
   .titulo {
-    height: 104px;
+    height: 200px;
   }
 
   .titulo {
-    padding: 0 1rem;
+    padding: 0 var(--space-lg);
     font-size: 2rem;
   }
 
   .postConteudoContainer {
-    padding: 2rem 1rem 1.5rem;
+    padding: var(--space-xl) var(--space-md) var(--space-xl);
+    margin: 0 var(--space-sm);
+    margin-top: -20px;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   }
 }

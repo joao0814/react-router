@@ -1,37 +1,234 @@
 .post {
   text-align: center;
-  width: 282px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
-  border-radius: 0px 0px 10px 10px;
-  padding-bottom: 1.5rem;
-  transition: transform 0.2s;
+  width: 320px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post:hover {
-  transform: translate(0, -1rem);
+  transform: translateY(-16px) scale(1.03);
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.25), 
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.post::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-500) 0%, var(--accent-400) 50%, var(--accent-300) 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  border-radius: 24px 24px 0 0;
+  z-index: 3;
+}
+
+.post:hover::before {
+  transform: scaleX(1);
+}
+
+.post::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.post:hover::after {
+  opacity: 1;
 }
 
 .capa {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+  filter: brightness(0.95) contrast(1.05);
+  flex-shrink: 0;
+}
+
+.post:hover .capa {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.1) saturate(1.1);
 }
 
 .titulo {
-  font-family: var(--fonte-secundaria);
+  font-family: var(--font-secondary);
   font-size: 1.25rem;
-  color: var(--azul-escuro);
-  line-height: 1.75rem;
-  margin: 1.5rem 0 1.75rem;
+  font-weight: 600;
+  color: var(--primary-900);
+  line-height: 1.4;
+  margin: var(--space-lg) var(--space-md) var(--space-sm);
+  padding: 0 var(--space-sm);
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 60px;
+  max-height: 80px;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.post:hover .titulo {
+  background: linear-gradient(135deg, var(--accent-600) 0%, var(--accent-500) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* Estilo específico para o botão dentro do card */
+.post button,
+.post a[class*="botao"] {
+  background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-600) 100%) !important;
+  border-radius: 12px !important;
+  padding: 10px 24px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  margin-bottom: var(--space-lg);
+  margin-top: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  color: var(--white) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 40px !important;
+  max-width: 120px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: hidden !important;
+  letter-spacing: 0.025em !important;
+  font-family: var(--font-primary) !important;
+}
+
+.post button::before,
+.post a[class*="botao"]::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.5s ease !important;
+  z-index: 1 !important;
+}
+
+.post:hover button::before,
+.post:hover a[class*="botao"]::before {
+  left: 100% !important;
+}
+
+.post:hover button,
+.post:hover a[class*="botao"] {
+  background: linear-gradient(135deg, var(--accent-400) 0%, var(--accent-500) 100%) !important;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3) !important;
+  transform: translateY(-2px) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.post button:active,
+.post a[class*="botao"]:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+}
+
+.post button:focus,
+.post a[class*="botao"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Garantir que o texto do botão fique acima do efeito de brilho */
+.post button > *,
+.post a[class*="botao"] > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Efeito de brilho sutil */
+.post .brilho {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: rotate(45deg) translateX(-100%);
+  transition: transform 0.8s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.post:hover .brilho {
+  transform: rotate(45deg) translateX(100%);
 }
 
 @media (max-width: 1100px) {
   .post {
-    width: 336px;
+    width: 100%;
+    max-width: 400px;
+    height: 380px;
   }
+  
   .titulo {
     font-weight: 600;
+    font-size: 1.125rem;
+    min-height: 50px;
   }
-  .botaoLer {
-    padding: 0.6875rem 1.5rem;
-    font-size: 1.375rem;
+}
+
+@media (max-width: 744px) {
+  .post {
+    height: 360px;
+  }
+  
+  .titulo {
+    font-size: 1rem;
+    min-height: 40px;
   }
 }

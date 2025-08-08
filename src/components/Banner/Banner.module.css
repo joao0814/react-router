@@ -1,105 +1,162 @@
 .banner {
-  padding: 3rem 7.5rem 6.25rem;
-  background-color: var(--azul-escuro);
-  color: var(--branco);
+  padding: var(--space-2xl) var(--space-2xl);
+  background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+  color: var(--white);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  min-height: 60vh;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.03"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0"/></radialGradient></defs><circle cx="200" cy="200" r="300" fill="url(%23a)"/><circle cx="800" cy="800" r="400" fill="url(%23a)"/></svg>');
+  pointer-events: none;
+}
+
+.apresentacao {
+  position: relative;
+  z-index: 1;
 }
 
 .titulo {
-  font-family: var(--fonte-secundaria);
-  font-size: 4rem;
-  margin-top: 4.875rem;
-  margin-bottom: 2rem;
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  background: linear-gradient(135deg, var(--white) 0%, var(--accent-200) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
 }
 
 .paragrafo {
-  font-family: var(--fonte-secundaria);
-  font-size: 1.5rem;
-  line-height: 2rem;
-  margin-bottom: 2rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  color: var(--primary-200);
+  max-width: 600px;
 }
 
 .imagens {
   position: relative;
-  height: 406px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .imagens > .minhaFoto {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 18vw;
-  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: var(--radius-2xl);
+  object-fit: cover;
+  box-shadow: var(--shadow-xl);
+  border: 4px solid var(--white);
+  transition: transform var(--transition-normal);
+}
+
+.imagens > .minhaFoto:hover {
+  transform: scale(1.05) rotate(2deg);
 }
 
 .imagens > .circuloColorido {
   position: absolute;
-  right: 7vw;
-  bottom: 2.2vw;
-  width: 25vw;
+  right: 50px;
+  bottom: 50px;
+  width: 150px;
+  height: 150px;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
 }
 
 @media (max-width: 1100px) {
   .banner {
-    padding: 3.5rem 1.5rem;
+    padding: var(--space-xl) var(--space-lg);
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-lg);
   }
 
   .titulo {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-sm);
   }
 
   .paragrafo {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-md);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .imagens {
-    height: 338px;
+    height: 300px;
+    order: -1;
   }
 
   .imagens > .minhaFoto {
-    width: 25vw;
+    width: 200px;
+    height: 200px;
+    right: 50%;
+    transform: translateX(50%);
   }
 
   .imagens > .circuloColorido {
-    right: 10vw;
-    width: 35vw;
+    right: 50%;
+    transform: translateX(50%);
+    width: 120px;
+    height: 120px;
   }
 }
 
 @media (max-width: 744px) {
   .banner {
-    padding: 2rem 1rem;
-    display: block;
+    padding: var(--space-lg) var(--space-md);
+    min-height: 50vh;
   }
 
   .titulo {
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
   }
 
   .paragrafo {
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
   }
 
   .imagens {
-    height: 307px;
-  }
-
-  .imagens > .minhaFoto,
-  .imagens > .circuloColorido {
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    height: 250px;
   }
 
   .imagens > .minhaFoto {
-    width: 170px;
-    transform: translate(5rem, 0px);
+    width: 150px;
+    height: 150px;
   }
 
   .imagens > .circuloColorido {
-    width: 240px;
-    transform: translate(-1.5rem, 0px);
+    width: 100px;
+    height: 100px;
   }
 }

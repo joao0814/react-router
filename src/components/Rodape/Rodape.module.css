@@ -1,9 +1,32 @@
 .rodape {
-    background-color: var(--azul-escuro);
-    color: var(--branco);
-    padding: 2rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: .5rem;
+  background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%);
+  color: var(--white);
+  padding: var(--space-xl) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--space-sm);
+  border-top: 1px solid var(--primary-700);
+  position: relative;
+}
+
+.rodape::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-400), transparent);
+}
+
+.rodape a {
+  color: var(--accent-300);
+  transition: color var(--transition-fast);
+  font-weight: 500;
+}
+
+.rodape a:hover {
+  color: var(--accent-200);
+  text-decoration: underline;
 }
