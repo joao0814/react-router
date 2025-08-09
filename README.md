@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# React Router
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Construído com React, React Router e CSS Modules, seguindo os princípios do Atomic Design.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
+![React Router](https://img.shields.io/badge/React_Router-7.7.1-red?style=for-the-badge&logo=react-router)
+![CSS Modules](https://img.shields.io/badge/CSS_Modules-✓-green?style=for-the-badge)
 
-In the project directory, you can run:
+## Sobre o Projeto
 
-### `npm start`
+Desenvolvido como projeto de estudo para demonstrar:
+- Roteamento dinâmico com React Router
+- Componentização modular seguindo Atomic Design
+- CSS Modules para estilos isolados
+- Interface responsiva e moderna
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ✅ Navegação dinâmica entre páginas
+- ✅ Blog com artigos sobre tecnologia
+- ✅ Página "Sobre" com informações pessoais
+- ✅ Design responsivo para mobile e desktop
+- ✅ Lazy loading para melhor performance
+- ✅ 404 page personalizada
 
-### `npm test`
+## Arquitetura
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O projeto segue os princípios do **Atomic Design**:
 
-### `npm run build`
+- **Átomos**: Componentes básicos (`Button`, `MenuLink`)
+- **Moléculas**: Componentes compostos (`Menu`, `PostCard`)
+- **Organismos**: Componentes complexos (`PostModel`, `Banner`)
+- **Templates**: Estruturas de página (`DefaultPage`)
+- **Pages**: Páginas completas (`Home`, `About`, `Post`)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tecnologias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React 19.1.0
+- React Router 7.7.1
+- React Markdown 10.1.0
+- CSS Modules
+- JavaScript ES6+
+- Create React App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Como Executar
 
-### `npm run eject`
+### Pré-requisitos
+- Node.js (versão 16 ou superior)
+- npm ou yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Instalação
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/react-router.git
+cd react-router
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Instale as dependências
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Execute o projeto
+```bash
+npm start
+```
 
-## Learn More
+4. Acesse `http://localhost:3000`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Estrutura do Projeto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Button/         # Átomo
+│   ├── MenuLink/       # Átomo
+│   ├── Menu/           # Molécula
+│   ├── PostCard/       # Organismo
+│   ├── PostModel/      # Organismo
+│   ├── Banner/         # Organismo
+│   └── DefaultPage/    # Template
+├── pages/              # Páginas da aplicação
+│   ├── Home/           # Página inicial
+│   ├── About/          # Página sobre
+│   ├── Post/           # Página de post
+│   └── Undefined/      # Página 404
+├── routes/             # Configuração de rotas
+├── assets/             # Recursos estáticos
+├── json/               # Dados JSON
+└── App.js              # Componente principal
+```
 
-### Code Splitting
+## Autor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**João Pedro** - Desenvolvedor Front-end
 
-### Analyzing the Bundle Size
+- 💼 [LinkedIn](https://www.linkedin.com/in/joao-4990791b7/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
